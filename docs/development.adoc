@@ -1,0 +1,29 @@
+= Getting Started
+
+First, run the development server:
+
+```bash
+npm install
+npm run mock
+npm run dev
+```
+
+http://localhost:3000[http://localhost:3000] can be used to view the application in your browser.
+
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+== Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- https://nextjs.org/docs[Next.js Documentation] - learn about Next.js features and API.[Next.js Documentation]
+- https://nextjs.org/learn[Learn Next.js] - an interactive Next.js tutorial.
+
+You can check out https://github.com/vercel/next.js[the Next.js GitHub repository] 
+
+== Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme[Vercel Platform] from the creators of Next.js.
+
+Check out our https://nextjs.org/docs/app/building-your-application/deploying[Next.js deployment documentation] for more details.

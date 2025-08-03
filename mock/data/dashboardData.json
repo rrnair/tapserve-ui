@@ -1,0 +1,295 @@
+{
+  "summary": {
+    "totalExpenses": 35,
+    "totalAmount": 875150,
+    "activeExpenses": 32,
+    "pendingExpenses": 5,
+    "approvedExpenses": 25,
+    "rejectedExpenses": 3,
+    "activeVendorsCount": 12
+  },
+  "expensesByCategory": [
+    {
+      "categoryId": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "categoryName": "Fresh Market",
+      "totalAmount": 178500,
+      "count": 8
+    },
+    {
+      "categoryId": "2",
+      "categoryName": "LPG",
+      "totalAmount": 125000,
+      "count": 5
+    },
+    {
+      "categoryId": "1",
+      "categoryName": "Utilities",
+      "totalAmount": 156550,
+      "count": 7
+    },
+    {
+      "categoryId": "3",
+      "categoryName": "Maintenance",
+      "totalAmount": 95000,
+      "count": 4
+    },
+    {
+      "categoryId": "20f35d04-24fd-47e3-afe5-c99930dcde0e",
+      "categoryName": "Poultry",
+      "totalAmount": 89000,
+      "count": 5
+    },
+    {
+      "categoryId": "e1ffd1db-b566-44fb-a054-a46f5466c3dd",
+      "categoryName": "Bakery",
+      "totalAmount": 67000,
+      "count": 3
+    },
+    {
+      "categoryId": "048a539f-8f7c-41f8-bcbb-4841debea603",
+      "categoryName": "Beverages",
+      "totalAmount": 98000,
+      "count": 2
+    },
+    {
+      "categoryId": "08b09082-d06d-4ec7-ab1e-051c0ff1edab",
+      "categoryName": "Assam Fresh",
+      "totalAmount": 66100,
+      "count": 1
+    }
+  ],
+  "expensesByVendor": [
+    {
+      "vendorId": "vendor-1",
+      "vendorName": "Fresh Basket",
+      "totalAmount": 121000,
+      "count": 8
+    },
+    {
+      "vendorId": "vendor-4",
+      "vendorName": "GasOnTime",
+      "totalAmount": 120000,
+      "count": 5
+    },
+    {
+      "vendorId": "vendor-10",
+      "vendorName": "VoltGrid Electric",
+      "totalAmount": 132000,
+      "count": 6
+    },
+    {
+      "vendorId": "vendor-9",
+      "vendorName": "ChillBrew",
+      "totalAmount": 98000,
+      "count": 4
+    },
+    {
+      "vendorId": "vendor-2",
+      "vendorName": "Poultry Point",
+      "totalAmount": 89000,
+      "count": 5
+    },
+    {
+      "vendorId": "vendor-8",
+      "vendorName": "PackRight",
+      "totalAmount": 69000,
+      "count": 3
+    },
+    {
+      "vendorId": "vendor-5",
+      "vendorName": "CoolFix Services",
+      "totalAmount": 58000,
+      "count": 2
+    },
+    {
+      "vendorId": "vendor-3",
+      "vendorName": "Bakers Delight",
+      "totalAmount": 45000,
+      "count": 2
+    },
+    {
+      "vendorId": "7bc41fcd-efce-40c7-8026-771c314e9017",
+      "vendorName": "ABC Tea",
+      "totalAmount": 66100,
+      "count": 1
+    },
+    {
+      "vendorId": "80cb1a85-5263-48da-ad4d-49c08aa2f7a8",
+      "vendorName": "Namdhari Fresh",
+      "totalAmount": 57500,
+      "count": 3
+    }
+  ],
+  "recentExpenses": [
+    {
+      "id": "dash-exp-1",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 5600,
+      "description": "10KG tea leaves",
+      "expenseDate": "2025-07-17",
+      "vendorId": "7bc41fcd-efce-40c7-8026-771c314e9017",
+      "vendorName": "ABC Tea",
+      "categoryId": "08b09082-d06d-4ec7-ab1e-051c0ff1edab",
+      "categoryName": "Assam Fresh",
+      "billNumber": "44",
+      "status": "pending",
+      "createdBy": "admin",
+      "createdAt": "2025-07-17T15:59:16.142Z",
+      "updatedAt": "2025-07-17T15:59:16.142Z"
+    },
+    {
+      "id": "dash-exp-2",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 5000,
+      "description": "LPG Cylinders",
+      "expenseDate": "2025-07-17",
+      "vendorId": "vendor-4",
+      "vendorName": "GasOnTime",
+      "categoryId": "2",
+      "categoryName": "LPG",
+      "billNumber": "33",
+      "status": "approved",
+      "createdBy": "admin",
+      "createdAt": "2025-07-17T15:40:46.004Z",
+      "updatedAt": "2025-07-17T15:40:46.004Z"
+    },
+    {
+      "id": "dash-exp-3",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 4500,
+      "description": "Cheese and butter",
+      "expenseDate": "2025-07-16",
+      "vendorId": "80cb1a85-5263-48da-ad4d-49c08aa2f7a8",
+      "vendorName": "Namdhari Fresh",
+      "categoryId": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "categoryName": "Fresh Market",
+      "billNumber": "24",
+      "status": "pending",
+      "createdBy": "admin",
+      "createdAt": "2025-07-16T18:28:19.636Z",
+      "updatedAt": "2025-07-16T18:28:19.636Z"
+    },
+    {
+      "id": "dash-exp-4",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 2500,
+      "description": "Potatoes ooty",
+      "expenseDate": "2025-07-16",
+      "vendorId": "vendor-1",
+      "vendorName": "Fresh Basket",
+      "categoryId": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "categoryName": "Fresh Market",
+      "billNumber": "12",
+      "status": "approved",
+      "createdBy": "admin",
+      "createdAt": "2025-07-16T18:27:50.458Z",
+      "updatedAt": "2025-07-16T18:27:50.458Z"
+    },
+    {
+      "id": "dash-exp-5",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 12550,
+      "description": "Water boiler for tea",
+      "expenseDate": "2025-07-16",
+      "vendorId": "fd37be5f-01f6-413a-828b-850f7f9fb83e",
+      "vendorName": "Sora Kitchen Supplies",
+      "categoryId": "1",
+      "categoryName": "Utilities",
+      "billNumber": "UTL-001",
+      "status": "pending",
+      "createdBy": "admin",
+      "createdAt": "2025-07-16T18:25:17.087Z",
+      "updatedAt": "2025-07-16T18:25:17.087Z"
+    },
+    {
+      "id": "dash-exp-6",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 8500,
+      "description": "Monthly electricity bill",
+      "expenseDate": "2025-07-15",
+      "vendorId": "vendor-10",
+      "vendorName": "VoltGrid Electric",
+      "categoryId": "5",
+      "categoryName": "Maintenance - Electricity",
+      "billNumber": "ELE-2025-07",
+      "status": "approved",
+      "createdBy": "manager",
+      "createdAt": "2025-07-15T10:30:00.000Z",
+      "updatedAt": "2025-07-15T10:30:00.000Z"
+    },
+    {
+      "id": "dash-exp-7",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 6750,
+      "description": "Cold coffee concentrate",
+      "expenseDate": "2025-07-14",
+      "vendorId": "vendor-9",
+      "vendorName": "ChillBrew",
+      "categoryId": "048a539f-8f7c-41f8-bcbb-4841debea603",
+      "categoryName": "Beverages",
+      "billNumber": "CB-445",
+      "status": "approved",
+      "createdBy": "cashier",
+      "createdAt": "2025-07-14T14:20:00.000Z",
+      "updatedAt": "2025-07-14T14:20:00.000Z"
+    },
+    {
+      "id": "dash-exp-8",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 3200,
+      "description": "Chicken drumsticks",
+      "expenseDate": "2025-07-13",
+      "vendorId": "vendor-2",
+      "vendorName": "Poultry Point",
+      "categoryId": "20f35d04-24fd-47e3-afe5-c99930dcde0e",
+      "categoryName": "Poultry",
+      "billNumber": "PP-112",
+      "status": "approved",
+      "createdBy": "admin",
+      "createdAt": "2025-07-13T11:15:00.000Z",
+      "updatedAt": "2025-07-13T11:15:00.000Z"
+    },
+    {
+      "id": "dash-exp-9",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 4800,
+      "description": "Fresh sandwich bread",
+      "expenseDate": "2025-07-12",
+      "vendorId": "vendor-3",
+      "vendorName": "Bakers Delight",
+      "categoryId": "e1ffd1db-b566-44fb-a054-a46f5466c3dd",
+      "categoryName": "Bakery",
+      "billNumber": "BD-078",
+      "status": "approved",
+      "createdBy": "cashier",
+      "createdAt": "2025-07-12T08:45:00.000Z",
+      "updatedAt": "2025-07-12T08:45:00.000Z"
+    },
+    {
+      "id": "dash-exp-10",
+      "tenantId": "tenant-1",
+      "outletId": "outlet-1",
+      "amount": 2150,
+      "description": "Disposable containers",
+      "expenseDate": "2025-07-11",
+      "vendorId": "vendor-8",
+      "vendorName": "PackRight",
+      "categoryId": "1",
+      "categoryName": "Utilities",
+      "billNumber": "PR-334",
+      "status": "rejected",
+      "createdBy": "cashier",
+      "createdAt": "2025-07-11T16:30:00.000Z",
+      "updatedAt": "2025-07-11T16:30:00.000Z"
+    }
+  ]
+}

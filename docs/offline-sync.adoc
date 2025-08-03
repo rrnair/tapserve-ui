@@ -1,0 +1,64 @@
+== Offline Storage Service (src/services/offlineStorageService.ts)
+
+  - IndexedDB-based local storage for expenses
+  - Automatic offline/online detection
+  - Sync queue management for pending operations
+  - Conflict resolution capabilities
+  - Metadata tracking for sync timestamps
+
+=== Sync Service (src/services/syncService.ts)
+
+  - Automatic sync when network connection is restored
+  - Background sync with retry logic and exponential backoff
+  - Conflict resolution (local vs server priority)
+  - Real-time sync status notifications
+  - Manual sync triggers
+
+=== Enhanced Expense Store (src/stores/expenses-store.ts)
+
+  - Offline-first approach - immediate UI updates
+  - Seamless online/offline transitions
+  - Automatic sync triggering
+  - Real-time sync status integration
+
+=== Network Status Components
+
+  - Network status hook (src/hooks/useNetworkStatus.ts)
+  - Visual network indicator (src/components/ui/network-status.tsx)
+  - Offline demo component for testing
+
+=== Updated Expense Form (src/app/expenses/add/page.tsx)
+
+  - Works completely offline
+  - Dynamic UI feedback based on connection status
+  - Automatic sync when online
+  - Clear user messaging for offline operations
+
+=== 🚀 How It Works
+
+  . Offline Entry: Users can create expenses even without internet - data is stored locally in
+  IndexedDB
+  . Automatic Sync: When connection returns, expenses automatically sync to the server
+  . Real-time Status: UI shows current sync status with pending counts
+  . Error Handling: Failed syncs are retried with exponential backoff
+  . Conflict Resolution: Handles conflicts between local and server data
+
+  💡 Usage Example
+[source,javascript]
+----
+  // Add an expense (works offline or online)
+  const newExpense = await addExpense({
+    amount: 1500,
+    description: "Office supplies",
+    vendorName: "Staples",
+    // ... other fields
+  })
+
+  // Check sync status
+  const { isOnline, pendingCount, isSyncing } = useNetworkStatus()
+
+  // Manual sync trigger
+  await syncNow()
+----
+
+The system provides a seamless offline experience where users never lose data and everything syncs automatically when connectivity is restored. The visual indicators keep users informed of the current sync status at all times.

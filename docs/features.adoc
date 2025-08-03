@@ -1,0 +1,487 @@
+= Expense Management Module - MVP Design
+
+== 1. MVP Scope & Objectives
+
+=== Primary Goals
+
+- **Quick Expense Entry**: Fast, intuitive expense recording for cashiers
+- **Bill Digitization**: OCR-powered bill scanning and data extraction
+- **Multi-outlet Support**: Expense tracking across multiple restaurant locations
+- **Offline Capability**: Work without internet, sync when online
+- **Role-based Access**: Different features for different user roles
+
+=== Success Metrics
+- **Time to Entry**: < 30 seconds for expense entry
+- **OCR Accuracy**: > 85% text extraction accuracy
+- **Offline Reliability**: 100% data preservation during offline mode
+- **User Adoption**: > 80% daily usage by cashiers
+
+---
+
+== 2. User Stories & Features
+
+=== Cashier User Stories
+```
+As a cashier, I want to:
+✓ Quickly add daily expenses (purchases, repairs, supplies)
+✓ Take photos of bills/receipts and have them auto-processed (create supplier/vendor if not exists, add raw material if not exists, expense category if not exists)
+✓ Work offline when internet is poor and sync later
+✓ See my expense history for the day/week
+✓ Get instant feedback on expense categorization
+✓ Take photo of a packaged raw material - and add it to inventory with quantity and price
+```
+
+=== Manager User Stories
+```
+As a manager, I want to:
+✓ Review and approve cashier expenses
+✓ See expense summaries for my outlets
+✓ Track inventory cost trends
+✓ Export expense data for accounting
+✓ Set expense approval thresholds
+```
+
+=== Owner/Admin User Stories
+```
+As an owner, I want to:
+✓ View expenses across all outlets
+✓ Set up expense categories and suppliers
+✓ Manage user access and permissions
+✓ Integrate with accounting systems
+✓ Analyze expense patterns and trends
+```
+
+---
+
+== 3. Core Features Breakdown
+
+=== 3.1 Expense Entry System
+```yaml
+Manual Entry:
+  - Quick form with smart defaults
+  - Auto-suggest suppliers/categories
+  - Bulk entry for multiple items
+  - Voice-to-text for descriptions
+
+OCR Bill Processing:
+  - Camera capture or file upload
+  - Real-time text extraction
+  - Smart field mapping (amount, date, supplier)
+  - Manual correction interface
+  - Confidence scoring for extracted data
+```
+
+=== 3.2 Offline-First Architecture
+```yaml
+Local Storage Strategy:
+  - IndexedDB for expense data
+  - Service Worker for background sync
+  - Image compression and storage
+  - Conflict resolution on sync
+
+Sync Management:
+  - Queue-based sync system
+  - Retry mechanism for failed syncs
+  - Visual sync status indicators
+  - Batch upload optimization
+```
+
+=== 3.3 Multi-tenant & RBAC Integration
+```yaml
+Tenant Context:
+  - Automatic tenant detection from auth
+  - Outlet-specific expense entries
+  - Cross-outlet reporting (role-based)
+
+Access Control:
+  - Cashier: Own outlet expenses only
+  - Manager: Assigned outlets
+  - Owner: All outlets in tenant
+  - Approval workflows based on amount thresholds
+```
+
+---
+
+== 4. Technical Architecture
+
+=== 4.1 Frontend Architecture (Next.js)
+```
+src/
+├── app/                          = Next.js App Router
+│   ├── (auth)/                  = Authentication pages
+│   ├── dashboard/               = Main dashboard
+│   ├── expenses/                = Expense management
+│   │   ├── add/                = Add expense page
+│   │   ├── scan/               = Bill scanning page
+│   │   ├── history/            = Expense history
+│   │   └── reports/            = Reports page
+│   └── settings/               = Settings pages
+├── components/                  = Reusable components
+│   ├── ui/                     = shadcn/ui components
+│   ├── forms/                  = Form components
+│   ├── charts/                 = Chart components
+│   └── layout/                 = Layout components
+├── lib/                        = Utility functions
+│   ├── api.ts                  = API client
+│   ├── auth.ts                 = Authentication
+│   ├── offline.ts              = Offline management
+│   ├── ocr.ts                  = OCR processing
+│   └── utils.ts                = General utilities
+├── stores/                     = State management
+│   ├── expense-store.ts        = Expense state
+│   ├── auth-store.ts           = Auth state
+│   └── offline-store.ts        = Offline queue
+└── types/                      = TypeScript definitions
+```
+
+=== 4.2 State Management Strategy
+[source,typescript]
+```typescript
+// Zustand stores for different concerns
+interface ExpenseStore {
+  expenses: Expense[]
+  addExpense: (expense: Expense) => void
+  updateExpense: (id: string, expense: Partial<Expense>) => void
+  deleteExpense: (id: string) => void
+  syncPendingExpenses: () => Promise<void>
+}
+
+interface OfflineStore {
+  isOnline: boolean
+  pendingSync: PendingOperation[]
+  addToSyncQueue: (operation: PendingOperation) => void
+  processSyncQueue: () => Promise<void>
+}
+```
+
+=== 4.3 OCR Integration
+```typescript
+interface OCRService {
+  extractTextFromImage: (image: File) => Promise<OCRResult>
+  parseExpenseFromText: (text: string) => Promise<ParsedExpense>
+  validateExtractedData: (data: ParsedExpense) => ValidationResult
+}
+
+interface OCRResult {
+  text: string
+  confidence: number
+  boundingBoxes: BoundingBox[]
+  fields: ExtractedField[]
+}
+```
+
+---
+
+=== 4.3 Technologies
+
+==== 4.3.1 Frontend Technologies
+
+- NextJS, Tailwind CSS, Shadcnui components
+- Support theme with theme provider - dark, light, system
+- In a selected theme allow change of colors
+- Language support - allow to change language to English, Hindi 
+- Currency format - allow to change currency format to INR (Indian Rupees), other currencies can be supported later
+
+
+
+== 5. Database Schema Design
+
+=== 5.1 Core Tables
+```sql
+-- Expenses table (main entity)
+CREATE TABLE expenses (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tenant_id UUID NOT NULL,
+    outlet_id UUID NOT NULL,
+    user_id UUID NOT NULL,
+    
+    -- Expense details
+    amount DECIMAL(10,2) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    sub_category VARCHAR(100),
+    description TEXT,
+    expense_date DATE NOT NULL,
+    
+    -- Supplier information
+    supplier_name VARCHAR(200),
+    supplier_contact VARCHAR(50),
+    
+    -- Bill information
+    bill_number VARCHAR(100),
+    bill_image_url TEXT,
+    ocr_extracted_data JSONB,
+    ocr_confidence_score DECIMAL(3,2),
+    
+    -- Approval workflow
+    status VARCHAR(20) DEFAULT 'pending', -- pending, approved, rejected
+    approved_by UUID,
+    approved_at TIMESTAMP,
+    approval_notes TEXT,
+    
+    -- Audit fields
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Indexes
+    INDEX idx_expenses_tenant_outlet (tenant_id, outlet_id),
+    INDEX idx_expenses_date (expense_date),
+    INDEX idx_expenses_status (status),
+    INDEX idx_expenses_category (category)
+);
+
+-- Expense categories (configurable per tenant)
+CREATE TABLE expense_categories (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tenant_id UUID NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    parent_category_id UUID, -- for sub-categories
+    is_active BOOLEAN DEFAULT true,
+    sort_order INTEGER DEFAULT 0,
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(tenant_id, name)
+);
+
+-- Suppliers management
+CREATE TABLE suppliers (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tenant_id UUID NOT NULL,
+    name VARCHAR(200) NOT NULL,
+    contact_person VARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    address TEXT,
+    gst_number VARCHAR(15),
+    
+    -- Supplier metadata
+    category VARCHAR(100), -- vegetables, equipment, etc.
+    payment_terms VARCHAR(50),
+    credit_limit DECIMAL(10,2),
+    
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(tenant_id, name)
+);
+
+-- Offline sync queue
+CREATE TABLE sync_queue (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL,
+    operation_type VARCHAR(20) NOT NULL, -- create, update, delete
+    table_name VARCHAR(50) NOT NULL,
+    record_id UUID,
+    payload JSONB NOT NULL,
+    
+    status VARCHAR(20) DEFAULT 'pending', -- pending, processing, completed, failed
+    retry_count INTEGER DEFAULT 0,
+    last_error TEXT,
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    processed_at TIMESTAMP,
+    
+    INDEX idx_sync_queue_user_status (user_id, status)
+);
+```
+
+---
+
+== 6. API Endpoints Design
+
+=== 6.1 RESTful API Structure
+```yaml
+Authentication:
+  POST /api/auth/login
+  POST /api/auth/refresh
+  POST /api/auth/logout
+
+Expenses:
+  GET    /api/expenses                    = List expenses (filtered by role)
+  POST   /api/expenses                    = Create expense
+  GET    /api/expenses/:id                = Get expense details
+  PUT    /api/expenses/:id                = Update expense
+  DELETE /api/expenses/:id                = Delete expense
+  POST   /api/expenses/:id/approve        = Approve expense
+  POST   /api/expenses/:id/reject         = Reject expense
+
+Bill Processing:
+  POST   /api/bills/upload                = Upload bill image
+  POST   /api/bills/ocr                   = Process OCR
+  GET    /api/bills/:id/preview           = Preview extracted data
+
+Categories & Suppliers:
+  GET    /api/categories                  = List categories
+  POST   /api/categories                  = Create category
+  GET    /api/suppliers                   = List suppliers
+  POST   /api/suppliers                   = Create supplier
+
+Reports:
+  GET    /api/reports/expenses            = Expense reports
+  GET    /api/reports/summary             = Dashboard summary
+  POST   /api/reports/export              = Export data
+
+Sync:
+  POST   /api/sync/queue                  = Add to sync queue
+  POST   /api/sync/process                = Process sync queue
+  GET    /api/sync/status                 = Sync status
+```
+
+=== 6.2 Request/Response Examples
+```typescript
+// POST /api/expenses
+interface CreateExpenseRequest {
+  amount: number
+  category: string
+  sub_category?: string
+  description?: string
+  expense_date: string
+  supplier_name?: string
+  bill_image?: File
+  outlet_id: string
+}
+
+interface ExpenseResponse {
+  id: string
+  amount: number
+  category: string
+  description: string
+  expense_date: string
+  supplier_name: string
+  status: 'pending' | 'approved' | 'rejected'
+  bill_image_url?: string
+  ocr_data?: OCRExtractedData
+  created_at: string
+  created_by: UserInfo
+}
+```
+
+---
+
+== 7. UI/UX Design System
+
+=== 7.1 Component Library (shadcn/ui)
+```typescript
+// Core components for expense management
+Components:
+  - ExpenseForm: Quick expense entry
+  - BillScanner: Camera/upload interface
+  - ExpenseCard: Display expense item
+  - ExpenseTable: List view with filtering
+  - ApprovalBadge: Status indicators
+  - SyncIndicator: Offline/online status
+  - CategorySelect: Smart category picker
+  - SupplierAutocomplete: Supplier search
+```
+
+=== 7.2 Responsive Design Breakpoints
+```css
+/* Mobile-first responsive design */
+.expense-form {
+  @apply grid grid-cols-1;
+  
+  @screen md: {
+    @apply grid-cols-2;
+  }
+  
+  @screen lg: {
+    @apply grid-cols-3;
+  }
+}
+
+/* Touch-optimized for mobile */
+.mobile-input {
+  @apply min-h-[44px] text-base; /* iOS optimization */
+}
+```
+
+=== 7.3 Theme System
+```typescript
+// Theme configuration
+interface ThemeConfig {
+  colors: {
+    primary: string    // Brand color
+    secondary: string  // Accent color
+    success: string    // Approved expenses
+    warning: string    // Pending expenses
+    error: string      // Rejected expenses
+  }
+  
+  // Dark/light mode variants
+  mode: 'light' | 'dark'
+  
+  // Custom theme variants
+  variant: 'default' | 'restaurant' | 'modern'
+}
+```
+
+---
+
+== 8. Implementation Phases
+
+=== Phase 1: Core MVP (Week 1-2)
+```yaml
+Features:
+  ✓ Basic expense entry form
+  ✓ Simple categorization
+  ✓ User authentication
+  ✓ Outlet selection
+  ✓ Basic listing/viewing
+
+Technical:
+  ✓ Next.js setup with shadcn/ui
+  ✓ Basic API endpoints
+  ✓ Database schema
+  ✓ Authentication flow
+```
+
+=== Phase 2: Enhanced Features (Week 3-4)
+```yaml
+Features:
+  ✓ Bill image upload
+  ✓ Basic OCR integration
+  ✓ Expense approval workflow
+  ✓ Simple reporting
+  ✓ Supplier management
+
+Technical:
+  ✓ File upload handling
+  ✓ OCR service integration
+  ✓ Email notifications
+  ✓ Export functionality
+```
+
+=== Phase 3: Advanced Features (Week 5-6)
+```yaml
+Features:
+  ✓ Offline functionality
+  ✓ Advanced OCR with field mapping
+  ✓ Dashboard analytics
+  ✓ Mobile PWA features
+  ✓ Bulk operations
+
+Technical:
+  ✓ Service Worker implementation
+  ✓ IndexedDB integration
+  ✓ Background sync
+  ✓ Performance optimization
+```
+
+---
+
+== 9. Success Criteria
+
+=== Technical Metrics
+- **Performance**: Page load < 2 seconds
+- **Offline**: 100% data preservation
+- **Mobile**: Works on iOS/Android browsers
+- **Scalability**: Handle 1000+ concurrent users
+
+=== Business Metrics
+- **Adoption**: 80% of cashiers use daily
+- **Accuracy**: OCR accuracy > 85%
+- **Efficiency**: 50% reduction in expense processing time
+- **Integration**: Seamless data flow to accounting
+
+This MVP design provides a solid foundation for the expense management module while maintaining alignment with the broader restaurant platform architecture.

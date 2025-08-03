@@ -1,0 +1,633 @@
+[
+  {
+    "id": "vendor-1",
+    "name": "Fresh Basket",
+    "description": "Supplies fresh vegetables and seasonal produce",
+    "category": {
+      "id": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "name": "Fresh Market",
+      "description": "Fresh Market  Items - Vegetables, fruits",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Mohan Lal",
+      "email": "mohan@freshbasket.com",
+      "phone": "+91-9876543210"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/fresh-basket.jpg"
+    ],
+    "isActive": false,
+    "expenseCount": 10,
+    "totalAmount": 121000,
+    "createdBy": "admin",
+    "createdAt": "2024-08-01T08:00:00Z",
+    "updatedAt": "2025-07-10T11:00:00Z"
+  },
+  {
+    "id": "vendor-2",
+    "name": "Poultry Point",
+    "description": "Eggs and chicken supplier",
+    "category": {
+      "id": "20f35d04-24fd-47e3-afe5-c99930dcde0e",
+      "name": "Poultry",
+      "description": "Various poultry items - chicken, egg",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Firoz Shaikh",
+      "email": "firoz@poultrypoint.in",
+      "phone": "+91-9845001122"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/poultry-point.png"
+    ],
+    "isActive": true,
+    "totalAmount": 89000,
+    "expenseCount": 5,
+    "createdBy": "admin",
+    "createdAt": "2024-10-12T09:30:00Z",
+    "updatedAt": "2025-07-11T07:20:00Z"
+  },
+  {
+    "id": "vendor-3",
+    "name": "Bakers Delight",
+    "description": "Buns, bread, and bakery items supplier",
+    "category": {
+      "id": "e1ffd1db-b566-44fb-a054-a46f5466c3dd",
+      "name": "Bakery",
+      "description": "Bakery items - breads",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2025-07-12T13:32:00.646Z",
+      "updatedAt": "2025-07-12T13:32:00.646Z"
+    },
+    "contact": {
+      "name": "Meera Kapoor",
+      "email": "meera@bakersdelight.in",
+      "phone": "+91-9112334455"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/bakers-delight.jpg"
+    ],
+    "isActive": true,
+    "totalAmount": 45000,
+    "expenseCount": 1,
+    "createdBy": "admin",
+    "createdAt": "2025-02-20T10:00:00Z",
+    "updatedAt": "2025-07-10T18:00:00Z"
+  },
+  {
+    "id": "vendor-4",
+    "name": "GasOnTime",
+    "description": "Timely LPG delivery for kitchen operations",
+    "category": {
+      "id": "2",
+      "name": "LPG",
+      "description": "LPG Gas Supplier",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Naresh Babu",
+      "email": "naresh@gasontime.co",
+      "phone": "+91-9723456789"
+    },
+    "account": null,
+    "imageUrls": [],
+    "isActive": true,
+    "totalAmount": 120000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2024-09-25T12:45:00Z",
+    "updatedAt": "2025-07-08T10:30:00Z"
+  },
+  {
+    "id": "vendor-5",
+    "name": "CoolFix Services",
+    "description": "Electrical repair and air conditioning service",
+    "category": {
+      "id": "3",
+      "name": "Maintenance",
+      "description": "Maintenance Items",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Rakesh Singh",
+      "email": "rakesh@coolfix.in",
+      "phone": "+91-9990011223"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/coolfix.jpg"
+    ],
+    "isActive": true,
+    "totalAmount": 58000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2024-12-10T14:30:00Z",
+    "updatedAt": "2025-06-30T13:10:00Z"
+  },
+  {
+    "id": "vendor-6",
+    "name": "HydroCharge",
+    "description": "Water usage billing and maintenance",
+    "category": {
+      "id": "4",
+      "name": "Maintenance - Water Charges",
+      "description": "Water usage charges for kitchen",
+      "parentId": "3",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Rekha Iyer",
+      "email": "rekha@hydrocharge.com",
+      "phone": "+91-9090909090"
+    },
+    "account": null,
+    "imageUrls": [],
+    "isActive": true,
+    "totalAmount": 21000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2024-11-05T11:00:00Z",
+    "updatedAt": "2025-07-11T13:00:00Z"
+  },
+  {
+    "id": "vendor-7",
+    "name": "SparkVolt",
+    "description": "Electricity backup charges and DG maintenance",
+    "category": {
+      "id": "6",
+      "name": "Maintenance - DG Charge",
+      "description": "Electricity - Backup Power charges",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Dinesh Sharma",
+      "email": "dinesh@sparkvolt.com",
+      "phone": "+91-9600123456"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/sparkvolt.jpg"
+    ],
+    "isActive": true,
+    "totalAmount": 36000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2025-01-15T10:15:00Z",
+    "updatedAt": "2025-07-11T09:45:00Z"
+  },
+  {
+    "id": "vendor-8",
+    "name": "PackRight",
+    "description": "Supplies food packaging and disposable materials",
+    "category": {
+      "id": "1",
+      "name": "Utilities",
+      "description": "All utlities - Electricity, Kitchen Tools etc",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Ritu Aggarwal",
+      "email": "ritu@packright.in",
+      "phone": "+91-9911223344"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/packright.jpg"
+    ],
+    "isActive": true,
+    "totalAmount": 69000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2025-01-20T09:00:00Z",
+    "updatedAt": "2025-07-11T12:20:00Z"
+  },
+  {
+    "id": "vendor-9",
+    "name": "ChillBrew",
+    "description": "Cold coffee and packaged drinks supplier",
+    "category": {
+      "id": "048a539f-8f7c-41f8-bcbb-4841debea603",
+      "name": "Beverages",
+      "description": "Beverages - Cola, smoothies, other packaged bottled drinks",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2025-07-12T13:45:02.098Z",
+      "updatedAt": "2025-07-12T13:45:02.098Z"
+    },
+    "contact": {
+      "name": "Neha Jain",
+      "email": "neha@chillbrew.com",
+      "phone": "+91-9054321000"
+    },
+    "account": null,
+    "imageUrls": [
+      "/vendors/chillbrew.jpg"
+    ],
+    "isActive": true,
+    "totalAmount": 98000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2025-07-01T10:00:00Z",
+    "updatedAt": "2025-07-11T16:00:00Z"
+  },
+  {
+    "id": "vendor-10",
+    "name": "VoltGrid Electric",
+    "description": "Monthly electricity billing and maintenance",
+    "category": {
+      "id": "5",
+      "name": "Maintenance - Electricity",
+      "description": "Electricity Bill",
+      "type": "vendor",
+      "isActive": true,
+      "createdBy": "admin",
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
+    },
+    "contact": {
+      "name": "Kavita Desai",
+      "email": "kavita@voltgrid.com",
+      "phone": "+91-9345020178"
+    },
+    "account": null,
+    "imageUrls": [],
+    "isActive": true,
+    "totalAmount": 132000,
+    "expenseCount": 10,
+    "createdBy": "admin",
+    "createdAt": "2025-03-01T11:00:00Z",
+    "updatedAt": "2025-07-11T15:00:00Z"
+  },
+  {
+    "id": "34071988-b402-4f7c-ae3c-7689ecf58889",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-16T08:39:28.531Z",
+    "updatedAt": "2025-07-16T08:39:28.531Z",
+    "createdBy": "admin",
+    "name": "MK Farms Chicken",
+    "description": "Supplies farm chicken ",
+    "category": {
+      "id": "20f35d04-24fd-47e3-afe5-c99930dcde0e",
+      "name": "Poultry",
+      "description": "Various poultry items - chicken, egg",
+      "type": "vendor",
+      "isActive": true,
+      "sortOrder": 0,
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15",
+      "createdBy": "admin"
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 1234567890,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "B101",
+        "street": "Mahadevapura",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true
+  },
+  {
+    "id": "4fe7abc6-fcf5-4b2e-9d9c-21dc9506e272",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-16T08:42:45.450Z",
+    "updatedAt": "2025-07-16T08:42:45.450Z",
+    "createdBy": "admin",
+    "name": "JC Chickens",
+    "description": "Halal Chicken suoplier",
+    "category": {
+      "id": "20f35d04-24fd-47e3-afe5-c99930dcde0e",
+      "name": "Poultry",
+      "description": "Various poultry items - chicken, egg",
+      "type": "vendor",
+      "isActive": true,
+      "sortOrder": 0,
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15",
+      "createdBy": "admin"
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 2345678901,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "C101",
+        "street": "Mahadevapura",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true
+  },
+  {
+    "id": "fd37be5f-01f6-413a-828b-850f7f9fb83e",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-16T09:04:05.917Z",
+    "updatedAt": "2025-07-16T09:04:05.917Z",
+    "createdBy": "admin",
+    "name": "Sora Kitchen Supplies",
+    "description": "Supplies kitchen metals",
+    "category": {
+      "id": "1",
+      "name": "Utilities",
+      "description": "All utlities - Electricity, Kitchen Tools etc",
+      "type": "vendor",
+      "isActive": true,
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15",
+      "createdBy": "admin"
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 8972312234,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "L10",
+        "street": "Chickpet",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true
+  },
+  {
+    "id": "80cb1a85-5263-48da-ad4d-49c08aa2f7a8",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-16T16:13:47.393Z",
+    "updatedAt": "2025-07-16T16:13:47.393Z",
+    "createdBy": "admin",
+    "name": "Namdhari Fresh",
+    "description": "Fresh Vegetables, Provisions and Beverages",
+    "category": {
+      "id": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "name": "Fresh Market",
+      "description": "Fresh Market  Items - Vegetables, fruits",
+      "type": "vendor",
+      "isActive": true,
+      "sortOrder": 0,
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15",
+      "createdBy": "admin"
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 1876543210,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "Arcade",
+        "street": "BMP",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true
+  },
+  {
+    "id": "7bc41fcd-efce-40c7-8026-771c314e9017",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-17T15:58:35.941Z",
+    "updatedAt": "2025-07-17T15:58:35.941Z",
+    "createdBy": "admin",
+    "name": "ABC Tea",
+    "description": "Tea leaves, green tea leaves",
+    "category": {
+      "id": "08b09082-d06d-4ec7-ab1e-051c0ff1edab",
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2025-07-17T15:57:21.334Z",
+      "updatedAt": "2025-07-17T15:57:21.334Z",
+      "createdBy": "admin",
+      "name": "Assam Fresh",
+      "description": "Supplies tea leaves",
+      "type": "vendor",
+      "parentId": "048a539f-8f7c-41f8-bcbb-4841debea603",
+      "isActive": true,
+      "sortOrder": 0
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 1223455567,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "L10",
+        "street": "Mahadevapura",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true
+  },
+  {
+    "id": "582bfb81-4cbd-45cf-b772-183380e29498",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-07-17T16:14:00.101Z",
+    "updatedAt": "2025-07-17T16:14:00.101Z",
+    "createdBy": "admin",
+    "name": "Magnolia Bakery",
+    "description": "Supplies party cakes",
+    "category": {
+      "id": "e1ffd1db-b566-44fb-a054-a46f5466c3dd",
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2025-07-12T13:32:00.646Z",
+      "updatedAt": "2025-07-12T13:32:00.646Z",
+      "createdBy": "admin",
+      "name": "Bakery",
+      "description": "Bakery items - breads",
+      "type": "vendor",
+      "isActive": true,
+      "sortOrder": 0
+    },
+    "contact": {
+      "phone": [
+        {
+          "phone": 1232432434,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "building": "CMH",
+        "street": "12th main",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "country": "IN"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true,
+    "account": {
+      "id": "",
+      "accountNo": "123456789",
+      "txnMatchRule": "/Magnolia/",
+      "bank": {
+        "ifsc": "SBIN0000011",
+        "name": "ICICI Bank",
+        "address": {
+          "building": "",
+          "street": "",
+          "city": "",
+          "state": "",
+          "country": "IN"
+        }
+      }
+    }
+  },
+  {
+    "id": "2ed019a6-6872-480f-aef7-502b1ab3f857",
+    "vendorCount": 0,
+    "expenseCount": 0,
+    "totalAmount": 0,
+    "createdAt": "2025-08-03T16:26:20.201Z",
+    "updatedAt": "2025-08-03T16:26:20.201Z",
+    "createdBy": "admin",
+    "name": "Fresho ",
+    "description": "Supplies fruits and vegetables",
+    "category": {
+      "id": "c6b2a23d-145b-462d-9a25-51e010e661e1",
+      "name": "Fresh Market",
+      "description": "Fresh Market  Items - Vegetables, fruits",
+      "type": "vendor",
+      "isActive": true,
+      "sortOrder": 0,
+      "vendorCount": 0,
+      "expenseCount": 0,
+      "totalAmount": 0,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15",
+      "createdBy": "admin"
+    },
+    "contact": {
+      "firstName": "James",
+      "lastName": "George",
+      "email": "james@gmail.com",
+      "phone": [
+        {
+          "phone": 9912423445,
+          "countryCode": 91
+        }
+      ],
+      "address": {
+        "head": "Fresho Services",
+        "building": "VA Towers",
+        "street": "100 elden street",
+        "city": "Bangalore",
+        "state": "KA",
+        "country": "IN",
+        "zipCode": "560048"
+      }
+    },
+    "imageUrls": [],
+    "isActive": true,
+    "accounts": [
+      {
+        "id": "",
+        "accountNo": "12445677889",
+        "bank": {
+          "name": "ICICI",
+          "ifsc": "ICIC00001",
+          "accountType": "current",
+          "txnMatchRule": "|Fresho|",
+          "address": {
+            "head": "Chennai Cenatoph Road",
+            "building": "Cenatoph",
+            "street": "Nandam",
+            "city": "Chennai",
+            "state": "TN",
+            "country": "IN",
+            "zipCode": "450001"
+          }
+        }
+      }
+    ]
+  }
+]

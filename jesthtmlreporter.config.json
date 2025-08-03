@@ -1,0 +1,6 @@
+{
+    "pageTitle": "Jest Test Report",
+    "outputPath": "./dist/test/test-report.html",
+    "includeFailureMsg": true,
+    "includeConsoleLog": true
+}
